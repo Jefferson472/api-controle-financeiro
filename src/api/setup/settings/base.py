@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     #third-apps
     'rest_framework',
     #my-apps
+    'contabilidade',
 ]
 
 MIDDLEWARE = [
