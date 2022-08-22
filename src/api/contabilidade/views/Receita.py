@@ -1,8 +1,7 @@
 from django.utils import timezone
 
-from rest_framework import generics, status
+from rest_framework import generics
 from rest_framework.exceptions import ValidationError
-from rest_framework.response import Response
 
 from contabilidade.models.Receita import Receita
 from contabilidade.serializer.Receita import ReceitaSerializer
@@ -13,7 +12,7 @@ class ReceitaList(generics.ListCreateAPIView):
     serializer_class = ReceitaSerializer
 
     def perform_create(self, serializer):
-        description = serializer.validated_data.get('descricao')
+        description = serializer.validated_data.get('descricao').lower()
         current_month = timezone.now().month
         queryset = self.queryset.filter(
             descricao=description, create_at__month=current_month
