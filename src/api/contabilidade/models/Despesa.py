@@ -19,7 +19,6 @@ class Despesa(models.Model):
     categoria = models.CharField(
         max_length=11, choices=CATEGORIES, default='Outras') 
     create_at = models.DateTimeField(auto_now_add=True)
-    # TODO: verificar se a data criação fixa e data_att variável
     update_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
