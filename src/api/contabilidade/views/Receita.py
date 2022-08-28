@@ -23,11 +23,21 @@ class ReceitaList(generics.ListCreateAPIView):
             serializer.save()
 
     def get_queryset(self):
-        r = self.request.GET.get('descricao')
-        if r:
-            return Receita.objects.filter(descricao__icontains=r)
+        request = self.request.GET.get('descricao')
+        if request:
+            return Receita.objects.filter(descricao__icontains=request)
         return super().get_queryset()
 
 class ReceitaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Receita.objects.all()
     serializer_class = ReceitaSerializer
+
+
+class ReceitaMes(generics.ListAPIView):
+    serializer_class = ReceitaSerializer
+
+    def get_queryset(self):
+        return Receita.objects.filter(
+            create_at__year=self.kwargs['ano'],
+            create_at__month=self.kwargs['mes']
+        )

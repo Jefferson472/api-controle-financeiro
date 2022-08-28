@@ -1,3 +1,4 @@
+from urllib import request
 from django.utils import timezone
 
 from rest_framework import generics
@@ -23,12 +24,22 @@ class DespesaList(generics.ListCreateAPIView):
             serializer.save()
 
     def get_queryset(self):
-        r = self.request.GET.get('descricao')
-        if r:
-            return Despesa.objects.filter(descricao__icontains=r)
+        request = self.request.GET.get('descricao')
+        if request:
+            return Despesa.objects.filter(descricao__icontains=request)
         return super().get_queryset()
 
 
 class DespesaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Despesa.objects.all()
     serializer_class = DespesaSerializer
+
+
+class DespesaMes(generics.ListAPIView):
+    serializer_class = DespesaSerializer
+
+    def get_queryset(self):
+        return Despesa.objects.filter(
+            create_at__year=self.kwargs['ano'],
+            create_at__month=self.kwargs['mes']
+        )
