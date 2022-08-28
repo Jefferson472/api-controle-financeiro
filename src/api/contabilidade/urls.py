@@ -8,11 +8,11 @@ from contabilidade.views.Despesa import DespesaList, DespesaDetail
 
 urlpatterns = [
     # Receitas
-    path('api/v1/receitas/', ReceitaList.as_view()),
+    path('api/v1/receitas', ReceitaList.as_view()),
     path('api/v1/receitas/<int:pk>', ReceitaDetail.as_view()),
     
     # Despesas
-    path('api/v1/despesas/', DespesaList.as_view()),
+    path('api/v1/despesas', DespesaList.as_view()),
     path('api/v1/despesas/<int:pk>', DespesaDetail.as_view()),
 ]
 

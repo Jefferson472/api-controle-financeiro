@@ -22,6 +22,12 @@ class DespesaList(generics.ListCreateAPIView):
         else:
             serializer.save()
 
+    def get_queryset(self):
+        r = self.request.GET.get('descricao')
+        if r:
+            return Despesa.objects.filter(descricao__icontains=r)
+        return super().get_queryset()
+
 
 class DespesaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Despesa.objects.all()
