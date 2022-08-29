@@ -9,9 +9,9 @@ from contabilidade.views.Resumo import ResumoList
 
 urlpatterns = [
     # Receitas
-    path('api/v1/receitas', ReceitaList.as_view()),
-    path('api/v1/receitas/<int:pk>', ReceitaDetail.as_view()),
-    path('api/v1/receitas/<int:ano>/<int:mes>', ReceitaMes.as_view()),
+    path('api/v1/receitas', ReceitaList.as_view(), name='receitas'),
+    path('api/v1/receitas/<int:pk>', ReceitaDetail.as_view(), name='detail'),
+    path('api/v1/receitas/<int:ano>/<int:mes>', ReceitaMes.as_view(), name='ano_mes'),
     
     # Despesas
     path('api/v1/despesas', DespesaList.as_view()),
