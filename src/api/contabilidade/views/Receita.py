@@ -1,4 +1,3 @@
-from urllib import request
 from django.utils import timezone
 
 from rest_framework import generics
@@ -6,6 +5,7 @@ from rest_framework.exceptions import ValidationError
 
 from contabilidade.models.Receita import Receita
 from contabilidade.serializer.Receita import ReceitaSerializer
+
 
 class ReceitaList(generics.ListCreateAPIView):
     queryset = Receita.objects.all()
@@ -27,6 +27,7 @@ class ReceitaList(generics.ListCreateAPIView):
         if request:
             return Receita.objects.filter(descricao__icontains=request)
         return super().get_queryset()
+
 
 class ReceitaDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Receita.objects.all()

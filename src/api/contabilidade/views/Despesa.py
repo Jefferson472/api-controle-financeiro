@@ -1,4 +1,3 @@
-from urllib import request
 from django.utils import timezone
 
 from rest_framework import generics
