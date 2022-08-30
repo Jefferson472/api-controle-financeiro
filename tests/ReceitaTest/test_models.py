@@ -1,5 +1,3 @@
-from django.utils import timezone
-
 from django.test import TestCase
 
 from contabilidade.models.Receita import Receita
