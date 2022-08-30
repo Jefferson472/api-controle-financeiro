@@ -26,6 +26,16 @@ class DespesaTestViews(APITestCase):
         res = self.client.get('/api/v1/despesas/1')
         self.assertEqual(res.status_code, 200)
 
+    def test_despesa_duplicada(self):
+        res = self.client.post(
+            '/api/v1/despesas',
+            {
+                'descricao': 'Despesa Teste',
+                'valor': 11
+            },
+        )
+        self.assertEqual(res.status_code, 400)
+
     def test_despesa_update(self):
         res = self.client.put(
             '/api/v1/despesas/1',
