@@ -15,7 +15,7 @@ class ReceitaList(generics.ListCreateAPIView):
         description = serializer.validated_data.get('descricao').lower()
         current_month = timezone.now().month
         queryset = self.queryset.filter(
-            descricao=description, create_at__month=current_month
+            descricao__icontains=description, create_at__month=current_month
         )
         if queryset:
             raise ValidationError('Erro: Receita já cadastrada para este mês!')
