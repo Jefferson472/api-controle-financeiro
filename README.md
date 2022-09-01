@@ -34,7 +34,9 @@ Autenticação para testes.
 Retorna uma lista de receitas cadastradas, uma única receita pelo `id` ou um filtro das receitas do mês
 
 `api/v1/receitas`
+
 `api/v1/receitas/<int:pk>`
+
 `api/v1/receitas/<int:ano>/<int:mes>`
 
 `ALLOW_METHODS = GET, POST, PUT, PATCH`
@@ -49,7 +51,9 @@ Retorna uma lista de receitas cadastradas, uma única receita pelo `id` ou um fi
 Retorna uma lista de despesas cadastradas, uma única despesa pelo `id` ou um filtro das despesas do mês
 
 `api/v1/despesas`
+
 `api/v1/despesas/<int:pk>`
+
 `api/v1/despesas/<int:ano>/<int:mes>`
 
 `ALLOW_METHODS = GET, POST, PUT, PATCH`
@@ -74,7 +78,9 @@ Retorna um resumo das despesas e receitas do mês.
 Para executar o projeto forneça uma `SECRET_KEY` no arquivo `.env` e execute os comando abaixo:
 
 `python src/api/manage.py migrate`
+
 `python src/api/manage.py createsuperuser`
+
 `python src/api/manage.py runserver`
 
 
