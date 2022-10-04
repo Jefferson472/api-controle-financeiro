@@ -4,7 +4,7 @@
 </h1>
 
 <div align="center" id="badges">
-    <img src="https://img.shields.io/badge/STATUS-COMPLETED-green"/>
+    <img src="https://img.shields.io/badge/STATUS-WIP-red"/>
 </div>
 
 ---
