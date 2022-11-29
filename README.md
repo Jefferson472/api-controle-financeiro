@@ -14,6 +14,7 @@
 Projeto de API para Controle Financeiro Familiar desenvolvido durante o Challenge BackEnd Alura. O projeto foi desenvolvido utilizando Python, Django Rest Framework.
 
 O projeto está disponível no link: https://api-alura-controle-financeiro.herokuapp.com
+> ***Obs.: Devido as recentes alterações dos planos do Heroku, o site foi temporariamente desativado até eu encontrar outra opção viável.***
 
 ---
 
